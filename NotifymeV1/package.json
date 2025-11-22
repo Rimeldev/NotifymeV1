@@ -1,0 +1,23 @@
+{
+  "name": "notifyme",
+  "version": "1.0.0",
+  "description": "NotifyMe - Assistant intelligent de gestion de conversations WhatsApp/Telegram",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "concurrently \"npm run dev --workspace=apps/api-gateway\" \"npm run dev --workspace=apps/message-service\" \"npm run dev --workspace=apps/user-service\" \"npm run dev --workspace=apps/sms-service\"",
+    "build": "npm run build --workspaces",
+    "test": "npm run test --workspaces",
+    "lint": "npm run lint --workspaces"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  }
+}
